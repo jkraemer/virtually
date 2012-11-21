@@ -1,0 +1,27 @@
+PATH
+  remote: .
+  specs:
+    virtually (0.0.1)
+      net-scp
+      net-ssh
+      nokogiri
+      ruby-libvirt (~> 0.4.0)
+      test-unit
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+    net-scp (1.0.4)
+      net-ssh (>= 1.99.1)
+    net-ssh (2.6.1)
+    nokogiri (1.5.5)
+    rake (10.0.2)
+    ruby-libvirt (0.4.0)
+    test-unit (2.5.2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  rake
+  virtually!

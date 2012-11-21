@@ -1,0 +1,6 @@
+---
+:ssh_user: root
+:uri: 'qemu+ssh://root@your.kvm.host/system?socket=/var/run/libvirt/libvirt-sock'
+:test_pool: 'some-storage-pool'
+:test_domain: 'some-guest'
+:test_volume: 'some-volume'

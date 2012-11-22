@@ -6,8 +6,7 @@ KVM management with [ruby-libvirt](http://libvirt.org/)
 Usage
 -----
 
-    hypervisor = Virtually.connect 'qemu+ssh://root@tisch.jkraemer.net/system?socket=/var/run/libvirt/libvirt-sock'
-
+    hypervisor = Virtually.connect 'qemu+ssh://root@your.server/system?socket=/var/run/libvirt/libvirt-sock'
 
     pool = hypervisor.find_storage_pool 'vg0'
     template = pool.find_volume 'template'
@@ -60,7 +59,7 @@ default, there is some work needed to get this working.
 
 Virtually by default depends on arpwatch running on the Hypervisor and
 logging to `/var/log/arpwatch.log`. Whenever `Domain#ip` is called, we
-ssh into the host and run Hypervisor#ip_command with the domain's MAC
+ssh into the host and run `Hypervisor#ip_command` with the domain's MAC
 address as the argument, which will basically grep the log for the mac
 address and extract the IP.
 
@@ -96,11 +95,11 @@ Known Limitations and rough edges
 
 - Specifying multiple disks and network interfaces per
   guest underwent only limited testing. Use
-
-      :disks => [
-        { :source => /path/to/vda-volume, :target_dev => 'vda'},
-        { :source => /path/to/vdb-volume, :target_dev => 'vdb'}
-      ]
+        
+        :disks => [
+          { :source => /path/to/vda-volume, :target_dev => 'vda'},
+          { :source => /path/to/vdb-volume, :target_dev => 'vdb'}
+        ]
 
   for multiple disks, and `:network_interfaces` instead of
   `:network_interface` for multiple networks.

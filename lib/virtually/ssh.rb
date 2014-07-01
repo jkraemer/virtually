@@ -21,5 +21,14 @@ module Virtually
       Net::SCP.upload!(hostname, ssh_user, local, remote)
     end
 
+    # call this after changing ssh host keys
+    def remember_new_host_key!
+      run "true"
+    rescue Net::SSH::HostKeyMismatch => e
+      puts "remembering new key: #{e.fingerprint}"
+      e.remember_host!
+    end
+
+
   end
 end
